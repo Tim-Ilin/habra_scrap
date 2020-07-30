@@ -1,7 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
 class Article(models.Model):
     title = models.CharField(max_length=200, verbose_name='Заголовок')
     url = models.URLField(verbose_name='Ссылка на статью', unique=True)
@@ -14,6 +13,7 @@ class Article(models.Model):
     class Meta:
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
+        ordering = ['id']
 
 
 class ParserError(models.Model):

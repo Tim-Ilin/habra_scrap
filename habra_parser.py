@@ -27,7 +27,9 @@ def parser():
             title = post.find('h2', class_='post__title')
             body_text = post.find('div', class_='post__text')
             url = title.a['href']
-            articles.append({'title': title.text, 'url': url, 'body_text': str(body_text.text).strip()})
+            articles.append({'title': str(title.text).replace('\n', ''),
+                             'url': url,
+                             'body_text': str(body_text.text).strip().replace('\n', '')})
     else:
         errors.append({'error': f'Не верный статускод {response.status_code} возможно изменился url'})
 
