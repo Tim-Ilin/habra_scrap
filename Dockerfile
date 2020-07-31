@@ -6,6 +6,7 @@ ENV PYTHONUNBUFFERED 1
 COPY ./requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
 RUN mkdir /app
+RUN mkdir /app/logs
 WORKDIR /app
 COPY . /app
 RUN echo '0 0 1/1 * *    habra_parser.py' > /etc/crontabs/root
