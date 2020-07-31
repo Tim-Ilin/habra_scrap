@@ -39,8 +39,7 @@ class StandardResultsSetPagination(PageNumberPagination):
 
 
 class ArticleList(generics.ListCreateAPIView):
-    """ Данный класс отдает весь список Article ограниченный классом пагинации.
-    """
+    """ Данный класс отдает весь список Article ограниченный классом пагинации."""
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     pagination_class = StandardResultsSetPagination
@@ -55,8 +54,7 @@ class ArticleList(generics.ListCreateAPIView):
 
 
 class ArticleDetail(generics.RetrieveAPIView):
-    """ Данный класс отдает конкретную запись из Article.
-    """
+    """ Данный класс отдает конкретную запись из Article."""
 
     def get(self, request, *args, **kwargs):
         """

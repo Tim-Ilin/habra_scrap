@@ -2,6 +2,10 @@ from django.db import models
 
 
 class Article(models.Model):
+    """
+    В этой модели создается таблица Article в которой будут содержаться
+    title, url, body_text полученный после парсинга.
+    """
     title = models.CharField(max_length=200, verbose_name='Заголовок')
     url = models.URLField(verbose_name='Ссылка на статью', unique=True)
     body_text = models.TextField(verbose_name='Текст статьи')
@@ -17,6 +21,7 @@ class Article(models.Model):
 
 
 class ParserError(models.Model):
+    """Если во время парсинга возникнут ошибки они буду записаны в данную таблицу"""
     error = models.CharField(max_length=200, verbose_name='Ошибка')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Время добавления добавления')
 
